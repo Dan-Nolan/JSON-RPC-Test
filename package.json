@@ -10,6 +10,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.19.2"
+    "axios": "^0.19.2",
+    "ethers": "^5.0.8",
+    "ganache-core": "^2.11.2"
+  },
+  "devDependencies": {
+    "sass": "^1.26.10"
   }
 }

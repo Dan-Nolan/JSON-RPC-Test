@@ -1,15 +1,7 @@
-const axios = require('axios');
+import "./index.scss";
+const { providers: { JsonRpcProvider } } = require('ethers');
+const getBlockNumber = require('./getBlockNumber');
 
-const promise = axios.post('https://mainnet.infura.io/v3/1a7bd32d1ba74c4c96cc4926e56c0ba6', {
-  jsonrpc: "2.0",
-  method: "eth_blockNumber",
-  id: 0,
-});
+const provider = new JsonRpcProvider("https://mainnet.infura.io/v3/1a7bd32d1ba74c4c96cc4926e56c0ba6");
 
-promise.then((response) => {
-  if(response.data.error) {
-    console.log(response.data.error);
-    return;
-  }
-  console.log( response.data.result );
-});
+setInterval(() => getBlockNumber(provider), 5000);
